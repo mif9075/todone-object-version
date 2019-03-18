@@ -92,5 +92,7 @@ function markDone(event) {
     // Apply 'strikethrough' styling to it.
 
 
-    // Mark its place 
+    // Mark done the same todo in the array, using the isDone array.
+    // There are a couple different ways to find the appropraite index. I bet
+    // you'll figure one out!
 }
