@@ -84,10 +84,6 @@ function clearDoneTodos(event) {
         One way to do this is to build up a new array. Give that a try first!
 
     */
-   console.log('before')
-
-   console.log(`todos: ${todos}`)
-   console.log(`isDone: ${isDone}`);
 
     const notDone = [];
     const newIsDone = [];
@@ -102,11 +98,6 @@ function clearDoneTodos(event) {
 
     todos = notDone;
     isDone = newIsDone;
-
-    console.log('after')
-
-    console.log(`todos: ${todos}`)
-    console.log(`isDone: ${isDone}`);
 
     /*
         Now remove the done todos from the html.
@@ -147,7 +138,6 @@ function toggleDone(event) {
 
     const ol = document.querySelector('#todo-list');
     const lis = ol.childNodes;
-    console.dir(`lis:`, lis)
     let liIndex = -1;
     
     for(let i = 0; i < lis.length; i++) {
