@@ -86,18 +86,20 @@ function clearDoneTodos(event) {
     */
 
     const notDone = [];
-    const newIsDone = [];
+    // const newIsDone = [];
 
     for(let i = 0; i < todos.length; i++) {
-        if(!isDone[i]) {
-            notDone.push(todos[i]);
+        if(!todos[i].isDone) {
+            // notDone.push(todos[i]);
             // isDone.splice(i, 1);
-            newIsDone.push(false);
+            // newIsDone.push(false);
+            notDone.push(todos[i]);
+            console.log(notDone);
         }
     }
 
     todos = notDone;
-    isDone = newIsDone;
+    // isDone = newIsDone;
 
     /*
         Now remove the done todos from the html.
@@ -116,7 +118,7 @@ function clearDoneTodos(event) {
 
     for(let i = 0; i < todos.length; i++) {
         const newLi = document.createElement('li');
-        newLi.innerText = todos[i];
+        newLi.innerText = todos[i].todo;
 
         newLi.addEventListener('click', toggleDone);
 
