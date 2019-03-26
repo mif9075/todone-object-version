@@ -15,17 +15,11 @@ window.onload = init;
 
 // Set up all event listeners.
 function init() {
-    // When they click the add todo button, run `addTodo`.
-    document.querySelector('#add-todo')
-        .addEventListener('click', addTodo);
-        
-        // When they click the clear done todos button, run `clearDoneTodos`.
-    document.querySelector('#clear-done-todos')
-        .addEventListener('click', clearDoneTodos);
-        
-        // When they click the clear all todos button, run `clearAllTodos`.
-    document.querySelector('#clear-all-todos')
-        .addEventListener('click', clearAllTodos);
+
+addClick('#add-todo', addTodo);
+addClick('#clear-done-todos', clearDoneTodos);
+addClick('#clear-all-todos', clearAllTodos);
+
 }
 
 function addTodo(event) {
@@ -63,9 +57,6 @@ function clearAllTodos(event) {
     // Remove all todos from BOTH arrays.
     todos.splice(0);
     
-    // todos.splice(0);
-    // isDone.splice(0);
-    
     // Remove all todos from the html.
     removeAllChildrenOfOl();
 }
@@ -94,7 +85,7 @@ function clearDoneTodos(event) {
             // isDone.splice(i, 1);
             // newIsDone.push(false);
             notDone.push(todos[i]);
-            console.log(notDone);
+            // console.log(notDone);
         }
     }
 
@@ -171,4 +162,12 @@ function removeAllChildrenOfOl() {
     while(ol.hasChildNodes()) {
         ol.removeChild(ol.firstChild);
     }
+}
+
+
+//Helper Functions
+
+function addClick(selector, func) {
+    document.querySelector(selector)
+        .addEventListener('click', func);
 }
