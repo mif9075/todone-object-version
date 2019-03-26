@@ -147,14 +147,14 @@ function toggleDone(event) {
     }
 
     // *IF* it's not done yet, apply strikethrough. Otherwise, take it away!
-    if(todos[liIndex]) {
+    if(todos[liIndex].isDone) {
         li.style.textDecoration = '';
     } else {
         li.style.textDecoration = 'line-through';
     }
 
     // Toggle the "done-ness" of the same todo, using the isDone array.
-    todos[liIndex] = !todos[liIndex];
+    todos[liIndex].isDone = !todos[liIndex].isDone;
 }
 
 function removeAllChildrenOfOl() {
