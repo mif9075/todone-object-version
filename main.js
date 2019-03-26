@@ -26,7 +26,6 @@ function init() {
         // When they click the clear all todos button, run `clearAllTodos`.
     document.querySelector('#clear-all-todos')
         .addEventListener('click', clearAllTodos);
-
 }
 
 function addTodo(event) {
@@ -67,7 +66,6 @@ function clearAllTodos(event) {
     // todos.splice(0);
     // isDone.splice(0);
     
-    
     // Remove all todos from the html.
     removeAllChildrenOfOl();
 }
@@ -90,16 +88,16 @@ function clearDoneTodos(event) {
     const notDone = [];
     const newIsDone = [];
 
-    for(let i = 0; i < objectDos.todos.length; i++) {
-        if(!objectDos.isDone[i]) {
-            notDone.push(objectDos.todos[i]);
+    for(let i = 0; i < todos.length; i++) {
+        if(!isDone[i]) {
+            notDone.push(todos[i]);
             // isDone.splice(i, 1);
             newIsDone.push(false);
         }
     }
 
-    objectDos.todos = notDone;
-    objectDos.isDone = newIsDone;
+    todos = notDone;
+    isDone = newIsDone;
 
     /*
         Now remove the done todos from the html.
@@ -116,9 +114,9 @@ function clearDoneTodos(event) {
 
     removeAllChildrenOfOl();
 
-    for(let i = 0; i < objectDos.todos.length; i++) {
+    for(let i = 0; i < todos.length; i++) {
         const newLi = document.createElement('li');
-        newLi.innerText = objectDos.todos[i];
+        newLi.innerText = todos[i];
 
         newLi.addEventListener('click', toggleDone);
 
@@ -149,14 +147,14 @@ function toggleDone(event) {
     }
 
     // *IF* it's not done yet, apply strikethrough. Otherwise, take it away!
-    if(objectDos.isDone[liIndex]) {
+    if(todos[liIndex]) {
         li.style.textDecoration = '';
     } else {
         li.style.textDecoration = 'line-through';
     }
 
     // Toggle the "done-ness" of the same todo, using the isDone array.
-    objectDos.isDone[liIndex] = !objectDos.isDone[liIndex];
+    todos[liIndex] = !todos[liIndex];
 }
 
 function removeAllChildrenOfOl() {
