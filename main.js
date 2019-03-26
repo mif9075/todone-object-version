@@ -7,8 +7,6 @@ For example, isDone[3] would hold the "done-ness" information for todos[3].
 
 */
 
-// let todos = [];
-// let isDone = [];
 let objectDos = {todos : [], isDone : []};
 
 // When the html finishes loading, launch `init`.
@@ -45,7 +43,7 @@ function addTodo(event) {
     objectDos.todos.push(newTodo);
     objectDos.isDone.push(false);
     
-    console.log(objectDos);
+    // console.log(objectDos);
 
     // Create a new html element and put our new todo's text in there.
     const newLi = document.createElement('li');
@@ -66,10 +64,11 @@ function clearAllTodos(event) {
     event.preventDefault();
     
     // Remove all todos from BOTH arrays.
-    objectDos.splice(0);
+    objectDos.todos.splice(0);
+    objectDos.isDone.splice(0);
     // todos.splice(0);
     // isDone.splice(0);
-    // console.log(objectDos);
+    console.log(objectDos);
     
     // Remove all todos from the html.
     removeAllChildrenOfOl();
