@@ -41,7 +41,7 @@ function addTodo(event) {
 
     // Put the todo and its "done-ness" in their respective arrays.
     todos.push({todo : newTodo, isDone : false});
-    console.log(todos);
+    // console.log(todos);
 
     // Create a new html element and put our new todo's text in there.
     const newLi = document.createElement('li');
@@ -62,8 +62,8 @@ function clearAllTodos(event) {
     event.preventDefault();
     
     // Remove all todos from BOTH arrays.
-    objectDos.todos.splice(0);
-    objectDos.isDone.splice(0);
+    todos.splice(0);
+    
     // todos.splice(0);
     // isDone.splice(0);
     
